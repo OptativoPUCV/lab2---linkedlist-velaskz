@@ -96,3 +96,14 @@ Thu 24 Aug 2023 04:18:00 PM UTC:
  tests:  9|3
 total_score: 35/70
 df17728
+Thu 24 Aug 2023 04:54:22 PM UTC: 
+ list.c | 2 ++
+ 1 file changed, 2 insertions(+)
+In file included from test.c:5:
+list.c: In function ‘pushFront’:
+list.c:84:10: error: unused variable ‘newNode’ [-Werror=unused-variable]
+   84 |   Node * newNode = createNode(data);
+      |          ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+7ea3519
