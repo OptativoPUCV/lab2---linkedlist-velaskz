@@ -81,7 +81,7 @@ void * prevList(List * list) {
 }
 
 void pushFront(List * list, void * data) {
-Node * newNode = createNode(data); // Crea un nuevo nodo con el dato
+  Node * newNode = createNode(data); // Crea un nuevo nodo con el dato
 
     if (list->head == NULL) {
         // La lista está vacía, el nuevo nodo será el único nodo en la lista
@@ -91,8 +91,8 @@ Node * newNode = createNode(data); // Crea un nuevo nodo con el dato
         return;
     }
 
-    Node * nodo_b = list->head; // Nodo siguiente al nuevo nodo
-    Node * nodo_a = NULL;       // No hay nodo anterior al nuevo nodo en el frente
+    Node * nodo_b = list->head; 
+    Node * nodo_a = NULL;       
 
     // Conecta el nuevo nodo con los nodos a y b
     newNode->next = nodo_b;
