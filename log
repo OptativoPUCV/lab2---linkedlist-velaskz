@@ -2,3 +2,15 @@ Thu 24 Aug 2023 04:14:26 AM UTC:
  tests:  0|6
 total_score: 0/70
 320e5d5
+Thu 24 Aug 2023 03:08:06 PM UTC: 
+ list.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+list.c: In function ‘createList’:
+list.c:33:3: error: ‘list’ undeclared (first use in this function); did you mean ‘List’?
+   33 |   list->head = NULL;
+      |   ^~~~
+      |   List
+list.c:33:3: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+d7db2ed
