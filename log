@@ -217,3 +217,14 @@ list.c:107:12: error: variable ‘nuevoNodo’ set but not used [-Werror=unused-
 cc1: all warnings being treated as errors
 Compilation failed
 14ea8e2
+Thu 24 Aug 2023 08:30:03 PM UTC: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+list.c: In function ‘pushCurrent’:
+list.c:107:12: error: unused variable ‘nuevoNodo’ [-Werror=unused-variable]
+  107 |     Node * nuevoNodo = createNode(data);
+      |            ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+c64f318
