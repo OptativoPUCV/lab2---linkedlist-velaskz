@@ -56,3 +56,14 @@ Thu 24 Aug 2023 03:53:33 PM UTC:
  tests:  2|5
 total_score: 15/70
 be98802
+Thu 24 Aug 2023 04:06:54 PM UTC: 
+ list.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+In file included from test.c:5:
+list.c: In function ‘nextList’:
+list.c:51:10: error: unused variable ‘proximoNodo’ [-Werror=unused-variable]
+   51 |   Node * proximoNodo = list->current->next;
+      |          ^~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+6a2b2eb
