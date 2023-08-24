@@ -50,6 +50,10 @@ void * nextList(List * list) {
   }
   Node * proximoNodo = list->current->next;
   list->current = proximoNodo;
+
+  if (proximoNodo == NULL){
+    return NULL;
+  }
   
     return proximoNodo->data;
 }
