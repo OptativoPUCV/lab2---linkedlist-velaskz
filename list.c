@@ -81,17 +81,31 @@ void * prevList(List * list) {
 }
 
 void pushFront(List * list, void * data) {
-  Node * nuevoNodo = createNode(data);
-  
-  if (list->head == NULL){
-    list->head = nuevoNodo;
-    list->tail = nuevoNodo;
-  }
-  else{
-    nuevoNodo->next = list->head;
-    list->head->prev = nuevoNodo;
-    list->head = nuevoNodo;
-  }
+  if (list->current == NULL) {
+        return; // No hay nodo actual
+    }
+
+    Node * newNode = createNode(data); // Crea un nuevo nodo con el dato
+
+    Node * nodo_b = list->current; // Nodo siguiente al nuevo nodo
+    Node * nodo_a = nodo_b->prev; // Nodo anterior al nuevo nodo
+
+    // Conecta el nuevo nodo con el nodo siguiente (b)
+    newNode->next = nodo_b;
+    nodo_b->prev = newNode;
+
+    // Conecta el nuevo nodo con el nodo anterior (a)
+    newNode->prev = nodo_a;
+    if (nodo_a != NULL) {
+        nodo_a->next = newNode;
+    } else {
+        // Si no hay nodo anterior, el nuevo nodo es el nuevo head
+        list->head = newNode;
+    }
+
+    // Actualiza el puntero current de la estructura List
+    list->current = newNode;
+}
 }
 
 void pushBack(List * list, void * data) {
