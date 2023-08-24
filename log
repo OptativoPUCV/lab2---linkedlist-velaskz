@@ -35,3 +35,18 @@ Thu 24 Aug 2023 03:52:21 PM UTC:
  1 file changed, 2 insertions(+), 1 deletion(-)
  tests:  0|0
 6d3ad88
+Thu 24 Aug 2023 03:53:21 PM UTC: 
+ list.c | 3 +++
+ 1 file changed, 3 insertions(+)
+In file included from test.c:5:
+list.c: In function ‘firstList’:
+list.c:40:6: error: expected ‘(’ before ‘list’
+   40 |   if list->head == NULL{
+      |      ^~~~
+      |      (
+list.c:40:10: error: statement with no effect [-Werror=unused-value]
+   40 |   if list->head == NULL{
+      |      ~~~~^~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+395d3d9
