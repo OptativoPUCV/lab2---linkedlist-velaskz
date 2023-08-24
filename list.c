@@ -81,10 +81,9 @@ void * prevList(List * list) {
 }
 
 void pushFront(List * list, void * data) {
-  Node * newNode = createNode(data); // Crea un nuevo nodo con el dato
+  Node * newNode = createNode(data); 
 
     if (list->head == NULL) {
-        // La lista está vacía, el nuevo nodo será el único nodo en la lista
         list->head = newNode;
         list->tail = newNode;
         list->current = newNode;
@@ -94,17 +93,13 @@ void pushFront(List * list, void * data) {
     Node * nodo_b = list->head; 
     Node * nodo_a = NULL;       
 
-    // Conecta el nuevo nodo con los nodos a y b
     newNode->next = nodo_b;
     newNode->prev = nodo_a;
 
-    // Ajusta el puntero prev del nodo b actual para que apunte al nuevo nodo
     nodo_b->prev = newNode;
 
-    // Actualiza el puntero head de la estructura List para que apunte al nuevo nodo
     list->head = newNode;
 
-    // Actualiza el puntero current de la estructura List
     list->current = newNode;
 }
 
