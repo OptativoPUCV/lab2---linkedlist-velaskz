@@ -90,18 +90,17 @@ void pushFront(List * list, void * data) {
     Node * nodo_b = list->current; // Nodo siguiente al nuevo nodo
     Node * nodo_a = nodo_b->prev; // Nodo anterior al nuevo nodo
 
-    // Conecta el nuevo nodo con el nodo siguiente (b)
+    // Conecta el nuevo nodo con los nodos a y b
     newNode->next = nodo_b;
-    nodo_b->prev = newNode;
-
-    // Conecta el nuevo nodo con el nodo anterior (a)
     newNode->prev = nodo_a;
+
+    // Ajusta el puntero next del nodo a para que apunte al nuevo nodo
     if (nodo_a != NULL) {
         nodo_a->next = newNode;
-    } else {
-        // Si no hay nodo anterior, el nuevo nodo es el nuevo head
-        list->head = newNode;
     }
+
+    // Ajusta el puntero prev del nodo b para que apunte al nuevo nodo
+    nodo_b->prev = newNode;
 
     // Actualiza el puntero current de la estructura List
     list->current = newNode;
