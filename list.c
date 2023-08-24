@@ -49,8 +49,9 @@ void * nextList(List * list) {
     return NULL;
   }
   Node * proximoNodo = list->current->next;
+  list->current = proximoNodo;
   
-    return list->current->data;
+    return list->current;
 }
 
 void * lastList(List * list) {

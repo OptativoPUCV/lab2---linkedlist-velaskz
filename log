@@ -67,3 +67,9 @@ list.c:51:10: error: unused variable ‘proximoNodo’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 6a2b2eb
+Thu 24 Aug 2023 04:07:57 PM UTC: 
+ list.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+ tests:  2|5
+total_score: 15/70
+ab8822d
