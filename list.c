@@ -51,7 +51,7 @@ void * nextList(List * list) {
   Node * proximoNodo = list->current->next;
   list->current = proximoNodo;
   
-    return list->current;
+    return proximoNodo->data;
 }
 
 void * lastList(List * list) {
