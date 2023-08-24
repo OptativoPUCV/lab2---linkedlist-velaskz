@@ -54,7 +54,7 @@ void * nextList(List * list) {
   if (proximoNodo == NULL){
     return NULL;
   }
-  
+
     return proximoNodo->data;
 }
 
@@ -63,7 +63,17 @@ void * lastList(List * list) {
 }
 
 void * prevList(List * list) {
+    if (list->current == NULL){
     return NULL;
+  }
+  Node * nodoAnterior = list->current->prev;
+  list->current = nodoAnterior;
+
+  if (nodoAnterior == NULL){
+    return NULL;
+  }
+
+    return nodoAnterior->data;
 }
 
 void pushFront(List * list, void * data) {
