@@ -105,7 +105,8 @@ void pushCurrent(List * list, void * data) {
   }
   else{
     Node * nuevoNodo = createNode(data);
-    nuevoNodo->prev = list->head;
+    //nuevoNodo->prev = list->head;
+    // el tail debería apuntar al nuevo nodo
     list->current->next = nuevoNodo;
   }
 }
