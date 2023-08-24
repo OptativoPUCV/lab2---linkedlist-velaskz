@@ -81,7 +81,7 @@ void * prevList(List * list) {
 }
 
 void pushFront(List * list, void * data) {
-  if (list->current == NULL) {
+   if (list->current == NULL) {
         return; // No hay nodo actual
     }
 
@@ -97,6 +97,8 @@ void pushFront(List * list, void * data) {
     // Ajusta el puntero next del nodo a para que apunte al nuevo nodo
     if (nodo_a != NULL) {
         nodo_a->next = newNode;
+    } else {
+        list->head = newNode; // Si no hay nodo previo, el nuevo nodo será la cabeza
     }
 
     // Ajusta el puntero prev del nodo b para que apunte al nuevo nodo
