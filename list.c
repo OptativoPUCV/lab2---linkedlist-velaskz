@@ -106,7 +106,6 @@ void pushFront(List * list, void * data) {
     // Actualiza el puntero current de la estructura List
     list->current = newNode;
 }
-}
 
 void pushBack(List * list, void * data) {
     list->current = list->tail;
