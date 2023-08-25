@@ -146,7 +146,7 @@ void * popCurrent(List * list) {
     }
 
     Node * current = list->current;
-    //void * data = current->data;
+    void * data = current->data;
 
     Node * prevNode = NULL;
     Node * aux = list->head;
@@ -173,7 +173,7 @@ void * popCurrent(List * list) {
 
         free(current);
 
-        return current->data; 
+        return data; 
     } else {
         return NULL; 
     }
