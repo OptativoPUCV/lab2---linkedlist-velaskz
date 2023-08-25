@@ -142,29 +142,38 @@ void * popBack(List * list) {
 
 void * popCurrent(List * list) {
       if (list->current == NULL) {
-        return NULL; // No hay nodo actual
+        return NULL; 
+    }
+  Node * aux = L->head;
+  Node * prevNode = NULL;
+
+  while (aux != NULL && aux != current) {
+      prevNode = aux;
+      aux = aux->next;
+  }
+  if (aux == current) {
+    void * data = current->data;
+
+    if (prevNode != NULL) {
+        prevNode->next = current->next;
+    } else {
+        L->head = current->next; // El nodo actual era el primero.
     }
 
-    Node * nodo_a = list->current->prev; // Nodo anterior al nodo actual
-    Node * nodo_b = list->current->next; // Nodo siguiente al nodo actual
-
-    void * data = list->current->data; // Guarda el dato del nodo actual
-
-    // Conecta los nodos a y b entre sí
-    if (nodo_a != NULL) {
-        nodo_a->next = nodo_b;
-    }
-    if (nodo_b != NULL) {
-        nodo_b->prev = nodo_a;
+    if (current->next != NULL) {
+        current->next->prev = prevNode;
+    } else {
+        L->tail = prevNode; // El nodo actual era el último.
     }
 
-    // Libera la memoria del nodo actual
-    free(list->current);
+    L->current = current->next; // Actualizar el puntero current.
 
-    // Actualiza el puntero current de la estructura List
-    list->current = nodo_b;
+    free(current); // Liberar memoria del nodo actual.
 
-    return data;
+    return data; // Devolver el dato del nodo eliminado.
+} else {
+    // No se encontró 'current' en la lista.
+    return NULL;
 }
 
 void cleanList(List * list) {
