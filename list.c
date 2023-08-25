@@ -110,22 +110,18 @@ void pushBack(List * list, void * data) {
 
 void pushCurrent(List * list, void * data) {
    if (list->current == NULL) {
-        return; // No se puede insertar si no hay un nodo actual.
+        return; 
     }
-
     Node * newNode = createNode(data);
-    Node * currentNode = list->current;
-    Node * prevNode = currentNode->prev;
-
-    if (prevNode != NULL) {
-        prevNode->next = newNode;
+    if (list->current->prev != NULL) {
+        newNode->prev = list->current->prev;
+        list->current->prev->next = newNode;
     } else {
-        list->head = newNode; // El nuevo nodo es el primero.
+        list->head = newNode; // El nodo actual era el primero.
     }
 
-    newNode->prev = prevNode;
-    newNode->next = currentNode;
-    currentNode->prev = newNode;
+    newNode->next = list->current;
+    list->current->prev = newNode    
 
 }
 
