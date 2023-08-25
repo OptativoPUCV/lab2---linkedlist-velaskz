@@ -384,3 +384,13 @@ Fri 25 Aug 2023 02:12:39 AM UTC:
  1 file changed, 3 insertions(+), 3 deletions(-)
  tests:  0|0
 e8fa30d
+Fri 25 Aug 2023 02:13:25 AM UTC: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+list.c: In function ‘popCurrent’:
+list.c:163:41: error: expected expression before ‘.’ token
+  163 |             list->head = current->next; .
+      |                                         ^
+Compilation failed
+9600c2a
