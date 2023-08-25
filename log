@@ -369,3 +369,13 @@ Fri 25 Aug 2023 01:42:48 AM UTC:
  tests:  11|1
 total_score: 60/70
 16da697
+Fri 25 Aug 2023 01:45:32 AM UTC: 
+ list.c | 16 +++++++---------
+ 1 file changed, 7 insertions(+), 9 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘popCurrent’:
+list.c:163:41: error: expected expression before ‘.’ token
+  163 |             list->head = current->next; .
+      |                                         ^
+Compilation failed
+9296108
