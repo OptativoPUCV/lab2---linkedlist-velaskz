@@ -126,7 +126,7 @@ void pushCurrent(List * list, void * data) {
     list->current->prev = newNode;
     
     // Actualiza el puntero current de la lista al nuevo nodo
-    list->current = newNodeode;    
+    list->current = newNode;    
 
 }
 
