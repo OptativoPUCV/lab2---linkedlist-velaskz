@@ -114,14 +114,19 @@ void pushCurrent(List * list, void * data) {
     }
     Node * newNode = createNode(data);
     if (list->current->prev != NULL) {
-        newNode->prev = list->current->prev;
-        list->current->prev->next = newNode;
+        // Actualiza el nodo previo
+        list->current->prev->next = new_node;
+        new_node->prev = list->current->prev;
     } else {
-        list->head = newNode; // El nodo actual era el primero.
+        // El nodo actual es el primero de la lista (head)
+        list->head = new_node;
     }
 
-    newNode->next = list->current;
-    list->current->prev = newNode;    
+    new_node->next = list->current;
+    list->current->prev = new_node;
+    
+    // Actualiza el puntero current de la lista al nuevo nodo
+    list->current = new_node;    
 
 }
 
