@@ -141,7 +141,30 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
-    return NULL;
+      if (list->current == NULL) {
+        return NULL; // No hay nodo actual
+    }
+
+    Node * nodo_a = list->current->prev; // Nodo anterior al nodo actual
+    Node * nodo_b = list->current->next; // Nodo siguiente al nodo actual
+
+    void * data = list->current->data; // Guarda el dato del nodo actual
+
+    // Conecta los nodos a y b entre sí
+    if (nodo_a != NULL) {
+        nodo_a->next = nodo_b;
+    }
+    if (nodo_b != NULL) {
+        nodo_b->prev = nodo_a;
+    }
+
+    // Libera la memoria del nodo actual
+    free(list->current);
+
+    // Actualiza el puntero current de la estructura List
+    list->current = nodo_b;
+
+    return data;
 }
 
 void cleanList(List * list) {
