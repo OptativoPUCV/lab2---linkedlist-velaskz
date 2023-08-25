@@ -141,38 +141,44 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
-      if (list->current == NULL) {
-        return NULL; 
+    if (list->current == NULL) {
+        printf("No hay nodo actual para eliminar.\n");
+        return NULL; // No hay nodo actual, no se puede eliminar nada.
     }
-  Node * aux = L->head;
-  Node * prevNode = NULL;
 
-  while (aux != NULL && aux != current) {
-      prevNode = aux;
-      aux = aux->next;
-  }
-  if (aux == current) {
+    Node * current = list->current;
     void * data = current->data;
 
-    if (prevNode != NULL) {
-        prevNode->next = current->next;
-    } else {
-        L->head = current->next; // El nodo actual era el primero.
+    Node * prevNode = NULL;
+    Node * aux = list->head;
+    
+    while (aux != NULL && aux != current) {
+        prevNode = aux;
+        aux = aux->next;
     }
 
-    if (current->next != NULL) {
-        current->next->prev = prevNode;
+    if (aux == current) {
+        if (prevNode != NULL) {
+            prevNode->next = current->next;
+        } else {
+            list->head = current->next; // El nodo actual era el primero.
+        }
+
+        if (current->next != NULL) {
+            current->next->prev = prevNode;
+        } else {
+            list->tail = prevNode; // El nodo actual era el último.
+        }
+
+        list->current = current->next; // Actualizar el puntero current.
+
+        free(current); // Liberar memoria del nodo actual.
+
+        return data; // Devolver el dato del nodo eliminado.
     } else {
-        L->tail = prevNode; // El nodo actual era el último.
+        // No se encontró 'current' en la lista.
+        return NULL; // Devolver un valor indicativo de que no se encontró el nodo.
     }
-
-    L->current = current->next; // Actualizar el puntero current.
-
-    free(current); // Liberar memoria del nodo actual.
-
-    return data; // Devolver el dato del nodo eliminado.
-} else {
-    // No se encontró 'current' en la lista.
     return NULL;
 }
 
