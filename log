@@ -459,3 +459,15 @@ list.c:115:12: error: unused variable ‘newNode’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 ac45742
+Fri 25 Aug 2023 08:03:50 AM UTC: 
+ list.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘pushCurrent’:
+list.c:129:21: error: ‘newNodeode’ undeclared (first use in this function); did you mean ‘newNode’?
+  129 |     list->current = newNodeode;
+      |                     ^~~~~~~~~~
+      |                     newNode
+list.c:129:21: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+4fa484d
