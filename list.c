@@ -113,18 +113,18 @@ void pushCurrent(List * list, void * data) {
         return; 
     }
     Node * newNode = createNode(data);
-    new_node->next = list->current->next;
-    new_node->prev = list->current;
+    newNode->next = list->current->next;
+    newNode->prev = list->current;
 
     if (list->current->next != NULL) {
-        list->current->next->prev = new_node;
+        list->current->next->prev = newNode;
     }
 
-    list->current->next = new_node;
+    list->current->next = newNode;
 
     // Si el nodo actual es el último (tail), actualiza el tail
     if (list->current == list->tail) {
-        list->tail = new_node;
+        list->tail = newNode;
     }   
 
 }
