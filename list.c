@@ -113,20 +113,25 @@ void pushCurrent(List * list, void * data) {
         return; 
     }
     Node * newNode = createNode(data);
-    newNode->next = list->current->next;
-    newNode->prev = list->current;
+    Node * nodo_b = list->current; // Nodo siguiente al nuevo nodo
+    Node * nodo_a = nodo_b->prev; // Nodo anterior al nuevo nodo
 
-    if (list->current->next != NULL) {
-        list->current->next->prev = newNode;
+    newNode->next = nodo_b;
+    newNode->prev = nodo_a;
+
+    if (nodo_a != NULL) {
+        nodo_a->next = newNode;
+    } else {
+        // Si nodo_a es NULL, el nuevo nodo será el nuevo head de la lista
+        list->head = newNode;
     }
 
-    list->current->next = newNode;
+    nodo_b->prev = newNode;
 
-    // Si el nodo actual es el último (tail), actualiza el tail
-    if (list->current == list->tail) {
-        list->tail = newNode;
-    }   
-
+    // Si el nodo actual es el head, actualiza el head
+    if (list->current == list->head) {
+        list->head = newNode;
+    }  
 }
 
 void * popFront(List * list) {
